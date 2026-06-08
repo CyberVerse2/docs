@@ -1,0 +1,81 @@
+---
+title: "Cassie's trading venues: Hyperliquid and Polymarket"
+sidebarTitle: "Venues"
+description: "Cassie routes trades to Hyperliquid for crypto perps and spot, or Polymarket for binary prediction markets — whichever fits the signal best."
+---
+
+Every Cassie trade lands on one of two venues: **Hyperliquid** for crypto perpetuals and spot markets, or **Polymarket** for binary YES/NO prediction markets. When you mention Cassie, the AI pipeline searches both venues, assesses which one best expresses the thesis in the source tweet, and places the order on whichever is the cleaner fit. You do not choose the venue yourself — Cassie picks it.
+
+<Tabs>
+  <Tab title="Hyperliquid">
+    ## Hyperliquid
+
+    Hyperliquid is a decentralized on-chain exchange for perpetual futures and spot trading. It runs its own high-performance L1, offering CEX-like speed with full on-chain settlement.
+
+    **What Cassie can trade**
+
+    Cassie supports crypto perpetuals and spot markets on Hyperliquid, including BTC, ETH, and SOL as primary assets, plus a growing list of additional tokens. Perpetuals let Cassie express directional views with leverage; spot is used when the tweet thesis calls for direct exposure.
+
+    | Detail | Value |
+    |---|---|
+    | Market type | Perpetuals and spot |
+    | Order type | IOC (Immediate-or-Cancel) limit |
+    | Default leverage | 3× for perpetuals |
+    | Sides | LONG or SHORT |
+
+    **Order mechanics**
+
+    Cassie uses IOC limit orders on Hyperliquid. The order is sent at a price close to the current mark; if it does not fill immediately it is cancelled rather than resting in the book. This avoids slippage from sitting orders while still achieving a market-quality fill in normal conditions.
+
+    **Leverage**
+
+    Perpetual positions are opened at 3× leverage by default, as set in your account configuration. Your margin is the USDC from your Privy wallet; the notional exposure is 3× that amount.
+  </Tab>
+  <Tab title="Polymarket">
+    ## Polymarket
+
+    Polymarket is an on-chain prediction market where you buy and sell shares in binary outcomes — events that resolve either YES or NO at a defined future date. Prices reflect the crowd's implied probability and trade between 0¢ and 100¢ per share.
+
+    **What Cassie can trade**
+
+    Cassie buys YES or NO shares in active Polymarket markets. It searches for markets whose question matches the signal in the source tweet, then takes the side that aligns with the tweet's thesis.
+
+    | Detail | Value |
+    |---|---|
+    | Market type | Binary outcome (YES / NO) |
+    | Order type | FAK (Fill-and-Kill) market buy |
+    | Sides | YES or NO |
+    | Market discovery | Cassie queries active markets by keyword derived from the tweet |
+
+    **Order mechanics**
+
+    Cassie sends FAK (Fill-and-Kill) market buy orders on Polymarket. The order fills at whatever the current ask is and any unfilled remainder is immediately cancelled. This means fills are fast and at the live market price, with no resting exposure.
+
+    **Market search**
+
+    When Cassie identifies a Polymarket expression as the best fit, it derives a search query from the tweet signal and finds the closest active market. If no active market matches with sufficient confidence, Cassie declines to trade rather than forcing a poor match.
+  </Tab>
+</Tabs>
+
+## How Cassie picks a venue
+
+When you trigger a trade, the AI pipeline runs the following process:
+
+<Steps>
+  <Step title="Extract the thesis">
+    Cassie reads the source tweet and extracts the directional claim — asset, direction, and any probability or price anchor mentioned.
+  </Step>
+  <Step title="Search both venues">
+    Cassie queries Hyperliquid for matching perp or spot markets and Polymarket for matching binary outcome markets simultaneously.
+  </Step>
+  <Step title="Score each candidate">
+    Each candidate market is scored for expression fit: how well the available instrument captures the thesis in the tweet, at what price, and with what expected slippage.
+  </Step>
+  <Step title="Pick the cleanest match">
+    The highest-scoring candidate across both venues wins. Cassie places the order on that venue.
+  </Step>
+</Steps>
+
+<Note>
+  Cassie will not trade if no suitable market is found on either venue. A reply on X will explain the reason — for example, "no active Polymarket market matched this signal" or "insufficient liquidity on the identified perp."
+</Note>

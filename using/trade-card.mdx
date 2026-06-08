@@ -1,0 +1,74 @@
+---
+title: "Trade cards: share your verified Cassie calls on X"
+sidebarTitle: "Trade Cards"
+description: "When a Cassie-executed call resolves, Cassie posts an auto-generated trade card on X — a prestige image showing your P&L, entry, and the original thesis."
+---
+
+When a position you opened through Cassie closes or resolves with a notable outcome, Cassie automatically posts a **trade card** as a reply on X. The card is a verified, tamper-proof record of the call: the original source tweet, the entry, the exit, and the P&L — rendered in a black-and-gold editorial style and posted publicly so anyone scrolling your timeline can see the result.
+
+## What's on a trade card
+
+Trade cards follow a fixed two-column "lot card" layout — the format of an auction-catalogue entry for a verified trade. Every card contains:
+
+<CardGroup cols={2}>
+  <Card title="The thesis" icon="quote-left">
+    The original quoted call from the source tweet — the thesis Cassie matched to a market. Shown in italic serif type on the left column.
+  </Card>
+  <Card title="The P&L figure" icon="chart-line">
+    The hero of the card. The gain or loss percentage is set in oversized Bodoni Moda numerals. Green for a gain, red for a loss — nothing else competes with it.
+  </Card>
+  <Card title="Entry and exit" icon="arrow-right-arrow-left">
+    The exact prices or probabilities at which the position was opened and closed, displayed as a spec line beneath the figure.
+  </Card>
+  <Card title="Venue and market" icon="building-columns">
+    The venue (Hyperliquid or Polymarket), the side (LONG / SHORT / YES / NO), and the full market question or ticker — presented as a structured spec sheet on the right column.
+  </Card>
+</CardGroup>
+
+## Design: the lot card aesthetic
+
+Trade cards use a **black-and-gold editorial aesthetic** — flat warm near-black surface, brass-gilt rules and hairlines, and result color (green or red) reserved exclusively for the P&L figure and the side badge. The design is deliberately restrained: no gradients, no glow effects, no decorative ornaments. The card reads the same way in a win as in a loss — same format, same hierarchy, same prestige. Only the color of the figure changes.
+
+The typography mirrors a dealer's catalogue: didone numerals for the hero figure, italic serif for the quoted call, and clean sans-serif labels throughout. A 1 px gilt divider separates the call column from the spec sheet.
+
+## When Cassie posts a card
+
+Cassie posts a trade card when:
+
+- A **Hyperliquid perpetual or spot position** is closed and the realized P&L is significant
+- A **Polymarket market resolves** and the position held through to resolution
+
+The card is posted as a reply to the original mention tweet that triggered the trade, keeping the call and its result together in the same X thread.
+
+## Shareable P&L page
+
+Every trade also has a public P&L page you can share directly:
+
+```text
+https://cassie.trade/trades/{positionId}/pnl
+```
+
+The page shows the same trade card alongside the full position detail — entry, exit, venue, thesis, and the source tweet. The OG image for the page is the trade card itself, so when you paste the link into X, Telegram, or Discord it previews the card automatically.
+
+<Tip>
+  Retweet Cassie's reply to put your win (or loss) on your own timeline. The trade card image is embedded in the tweet and renders as a full-size preview on X and most other platforms — no link-clicking required for followers to see the result.
+</Tip>
+
+## Finding your trade cards
+
+You can access the P&L page for any position from your dashboard:
+
+<Steps>
+  <Step title="Open your dashboard">
+    Go to [cassie.trade/dashboard](https://cassie.trade/dashboard).
+  </Step>
+  <Step title="Find the position">
+    Open positions have a **Share** button in the action column. Closed positions are visible in the activity feed.
+  </Step>
+  <Step title="Click Share">
+    Clicking **Share** opens the public P&L page for that position at `cassie.trade/trades/{positionId}/pnl`.
+  </Step>
+  <Step title="Copy or post the link">
+    Copy the URL to share anywhere, or use the Retweet on Cassie's original reply thread on X to push the card directly to your followers.
+  </Step>
+</Steps>

@@ -1,0 +1,62 @@
+---
+title: "Connect Telegram to receive real-time Cassie trade alerts"
+sidebarTitle: "Telegram"
+description: "Connect the Cassie Telegram bot to receive real-time trade fill notifications, P&L updates, daily summaries, and exit signals direct to your DMs."
+---
+
+Connecting Telegram turns Cassie from a set-and-forget agent into a live trading companion. The moment a trade fills, a watched position moves significantly, or a counter triggers, you get a direct message — no need to keep the dashboard open or refresh your X feed to find out what happened.
+
+## Why connect Telegram
+
+Cassie sends five categories of notification to your Telegram DMs:
+
+<CardGroup cols={2}>
+  <Card title="Trade filled" icon="bolt">
+    Instant confirmation the moment your mention results in a position being opened on Hyperliquid or Polymarket, including venue, side, size, and entry price.
+  </Card>
+  <Card title="Position P&L updates" icon="chart-line">
+    Periodic updates when an open position moves significantly in either direction — so you know without watching a chart.
+  </Card>
+  <Card title="Exit signals" icon="flag-checkered">
+    Notification when Cassie identifies an exit condition for an open position, including the reason and the realised result.
+  </Card>
+  <Card title="Daily summary" icon="calendar-day">
+    A once-daily recap of all positions opened, closed, and currently active — useful for reviewing performance at a glance.
+  </Card>
+</CardGroup>
+
+## How to connect
+
+You can connect Telegram during onboarding (Step 5 — Notify) or at any time from your dashboard settings. The flow is the same in both places.
+
+<Steps>
+  <Step title="Click Connect Telegram">
+    Press the **Connect Telegram** button. Cassie generates a unique, time-limited connection link and opens the Cassie Telegram bot in a new browser window. Allow pop-ups for cassie.trade if your browser blocks the window.
+  </Step>
+  <Step title="Send /start to the Cassie bot">
+    The new window opens directly to the Cassie bot in Telegram (web or desktop app). Press **Start** or type `/start` and send it. This links your Telegram account to your Cassie session.
+  </Step>
+  <Step title="Wait for confirmation">
+    Switch back to the Cassie browser window. Cassie polls for the connection every two seconds. Once the bot receives your `/start` message, the UI updates to show your Telegram username and a **Connected** status — no further action needed.
+  </Step>
+</Steps>
+
+<Note>
+  The Cassie Telegram bot is **@cassiedottradebot**. You will be redirected to it automatically when you click Connect Telegram — you do not need to search for it manually. Do not send your connection link to anyone else; it is single-use and tied to your account.
+</Note>
+
+<Warning>
+  The connection link expires after a short window. If you see a timeout error, click **Connect Telegram** again to generate a fresh link and restart the flow.
+</Warning>
+
+## Skipping and reconnecting
+
+Telegram is optional. If you click **I'll do this later** during onboarding, Cassie continues without notifications. You can return to **Settings → Notifications** in your dashboard at any time to connect the bot.
+
+## Disconnecting Telegram
+
+To stop receiving notifications, open **Settings → Notifications** in your dashboard and click **Disconnect**. Your Telegram account is unlinked immediately and Cassie stops sending messages. You can reconnect at any time using the same flow described above.
+
+<Tip>
+  If you stop receiving notifications unexpectedly, check that you have not blocked or muted the Cassie bot inside Telegram. Open the bot chat and send `/start` again — Cassie will re-establish the connection automatically.
+</Tip>

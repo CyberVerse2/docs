@@ -1,0 +1,88 @@
+---
+title: "Quickstart: Sign In, Fund Your Wallet, and Trade in 5 Steps"
+sidebarTitle: "Quickstart"
+description: "Sign in with X, fund your Base wallet with USDC, set a default trade size, and send your first @cassiedottrade mention — all in under five minutes."
+---
+
+Getting Cassie up and running takes about five minutes. You'll sign in with your X account, grant Cassie trading permission on a non-custodial wallet, drop in some USDC, pick a default trade size, and send your first mention. After that, every market-flavored tweet on your timeline is one reply away from becoming a live trade.
+
+<Steps>
+
+  <Step title="Sign in with your X account">
+    Go to [cassie.trade](https://cassie.trade) and click **Sign in**. Cassie uses Privy for authentication, so you sign in with your X (Twitter) account — no separate password or email required.
+
+    Once you're signed in, Privy generates a dedicated Base wallet address for you. This wallet is yours; Cassie never controls the keys.
+
+    <Tip>
+      You must use the same X account you plan to mention `@cassiedottrade` from. Cassie matches incoming mentions to your wallet by your X identity.
+    </Tip>
+  </Step>
+
+  <Step title="Enable trading permission">
+    On the **Permissions** step, click **Enable trading permission**. This grants Cassie the ability to place orders from your wallet without asking for your approval every time.
+
+    Your funds stay in your wallet throughout. Cassie can only trade what you've deposited, up to the default size you configure in the next steps — it has no ability to move funds elsewhere.
+
+    <Note>
+      You can revoke trading permission at any time from your Cassie dashboard.
+    </Note>
+  </Step>
+
+  <Step title="Fund your wallet">
+    On the **Fund** step, Cassie displays your personal Base wallet address as a QR code. Send **USDC on the Base network** to that address.
+
+    - Scan the QR code from your exchange or mobile wallet app, or
+    - Click **Copy address** and paste it into a withdrawal form
+
+    ```text
+    Network:  Base (chain ID 8453)
+    Token:    USDC
+    Minimum:  $6 USDC (matches the minimum trade size)
+    ```
+
+    Cassie watches for your deposit in real time and shows a confirmation once it arrives. You can skip this step and fund later, but Cassie will not trade until your balance covers at least one trade.
+
+    <Warning>
+      Only send USDC on **Base**. Sending funds on a different network (Ethereum mainnet, Arbitrum, etc.) will not credit your Cassie wallet.
+    </Warning>
+  </Step>
+
+  <Step title="Set your default trade size">
+    On the **Defaults** step, choose how much USDC Cassie deploys per mention. Select one of the presets or type a custom amount:
+
+    | Preset | Good for |
+    |--------|----------|
+    | **$25** | Testing the flow with low exposure |
+    | **$50** | Default starting point |
+    | **$100** | Active, moderate-size trading |
+    | **$250** | Higher-conviction sizing |
+    | **Custom** | Any amount above the $6 minimum |
+
+    Every `@cassiedottrade` mention uses this size unless you override it inline. You can change your default at any time from the sidebar.
+
+    <Tip>
+      Start with $25–$50 while you're getting familiar with how Cassie reads signals. You can increase it once you've seen a few trades execute.
+    </Tip>
+  </Step>
+
+  <Step title="Send your first mention">
+    Find any market-flavored tweet and reply with `@cassiedottrade trade this`. That's all you need to say.
+
+    For example, if you see this tweet:
+
+    > *"SOL ETF approval odds quietly grinding back above 60c on Polymarket. Volume's there, this is the one."*
+
+    Reply to it with:
+
+    ```text
+    @cassiedottrade trade this
+    ```
+
+    Cassie reads the original tweet, identifies the thesis, searches Hyperliquid and Polymarket for the best match, and — if it finds one and risk checks pass — executes the trade from your wallet.
+  </Step>
+
+</Steps>
+
+<Note>
+  After every mention, Cassie replies directly to your tweet with its analysis: what it found, which venue it chose, and whether a trade was placed. If you connected Telegram, you'll also receive a private notification the moment your order fills.
+</Note>

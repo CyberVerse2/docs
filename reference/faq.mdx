@@ -1,0 +1,117 @@
+---
+title: "Cassie FAQ: wallet custody, trade execution, and risk"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about how Cassie holds your funds, executes trades, manages risk, and delivers notifications."
+---
+
+Cassie is designed to be simple to trigger and transparent about every decision it makes. The questions below cover the details that matter most — from who controls your funds to how a fill actually happens. If you don't find what you need here, reach out to [@cassiedottrade](https://x.com/cassiedottrade) on X.
+
+## Custody & wallet
+
+<AccordionGroup>
+
+<Accordion title="Is Cassie custodial?">
+No. Your funds live in a [Privy](https://privy.io)-managed embedded wallet that only you control. When you grant trading permission during onboarding, you authorise Cassie to place trades on your behalf — but Cassie can never move funds out of your wallet or transfer them to another address. You remain the sole owner.
+</Accordion>
+
+<Accordion title="What network is my wallet on?">
+Your Cassie wallet runs on **Base**, an Ethereum Layer 2 network. You fund it by sending **USDC on Base** to your wallet address. Do not send USDC on Ethereum mainnet or any other chain — those deposits will not appear in your balance.
+</Accordion>
+
+<Accordion title="What if I lose access to my account?">
+Your wallet is linked to your **X (Twitter) login** through Privy. If you lose access to your X account, contact [Privy support](https://privy.io) directly for wallet recovery options. Cassie does not store separate credentials for your wallet.
+</Accordion>
+
+</AccordionGroup>
+
+## Trading
+
+<AccordionGroup>
+
+<Accordion title="Does Cassie guarantee a fill?">
+No. Cassie places **IOC (Immediate-or-Cancel)** orders on Hyperliquid and **FAK (Fill-and-Kill) market buy** orders on Polymarket. Both order types must fill immediately against available liquidity. If the required depth is not present at the moment the order is submitted, the order expires unfilled — no partial fills occur. When this happens, Cassie replies to your mention on X to let you know. Check your dashboard — if no position appears, the order did not execute.
+</Accordion>
+
+<Accordion title="How much does Cassie trade per mention?">
+Cassie deploys your **configured default trade size** for each mention. The minimum is **$6 USDC**. Quick-select presets of **$25, $50, $100, and $250** are available when you set up or update your default from the dashboard. Counter and watch actions inherit the same default size.
+</Accordion>
+
+<Accordion title="Can I send multiple mentions?">
+Yes. Each mention of `@cassiedottrade` is processed as a separate, independent trade attempt. There is no deduplication between mentions — if you tag Cassie twice on the same post, Cassie will attempt two separate trades.
+</Accordion>
+
+<Accordion title="What if there's no suitable market for my mention?">
+If Cassie searches Hyperliquid and Polymarket and cannot find a market that cleanly expresses the thesis in the post, it will **reply to your mention on X** explaining the no-trade decision and why. No funds are moved.
+</Accordion>
+
+<Accordion title="Does Cassie use leverage?">
+It depends on the venue:
+
+- **Hyperliquid perpetuals** — Cassie uses a default leverage of **3×**, and takes a LONG or SHORT position based on the directional signal in your mention.
+- **Hyperliquid spot** — No leverage. Cassie buys or sells the underlying asset directly.
+- **Polymarket** — No leverage. Cassie purchases YES or NO shares in a binary prediction market at the current market price.
+</Accordion>
+
+</AccordionGroup>
+
+## Risk
+
+<AccordionGroup>
+
+<Accordion title="Can Cassie lose more than my wallet balance?">
+No. Cassie only trades with funds available in your wallet, bounded by your configured default trade size. It will never open a position that exceeds what your wallet holds or attempt to borrow capital on your behalf beyond the venue's standard leverage mechanics for perpetuals.
+</Accordion>
+
+<Accordion title="How does risk checking work?">
+Before submitting any trade, Cassie runs a set of **deterministic risk rules** that include:
+
+- Sizing the trade against your current wallet balance
+- Confirming your balance meets the minimum trade size
+- Verifying a suitable active market exists on the target venue
+
+If any check fails, Cassie surfaces a no-trade reply rather than placing an order.
+</Accordion>
+
+<Accordion title="Can I set a stop loss?">
+Not currently. Cassie does not place stop-loss orders at execution time. Instead, Cassie **monitors open positions daily for exit signals** and notifies you via Telegram (if connected) and your dashboard when a position warrants attention. Manual exit is available from your dashboard at any time.
+</Accordion>
+
+</AccordionGroup>
+
+## Notifications
+
+<AccordionGroup>
+
+<Accordion title="Do I need Telegram to use Cassie?">
+No. Telegram is entirely optional. You can track all open positions, fills, and P&L on your **Cassie dashboard** without connecting Telegram. You can connect Telegram during onboarding or at any time from your dashboard settings. Connecting Telegram adds **real-time push notifications** so you're alerted the moment something happens, without having to check the dashboard.
+</Accordion>
+
+<Accordion title="What notifications does Cassie send?">
+When Telegram is connected, Cassie sends:
+
+- **Trade fill confirmations** — as soon as an order is filled on the venue
+- **Position P&L updates** — periodic mark-to-market on open positions
+- **Daily summaries** — an end-of-day overview of your portfolio
+- **Exit signal alerts** — when Cassie's monitoring detects a signal to close a position
+</Accordion>
+
+</AccordionGroup>
+
+## Venues
+
+<AccordionGroup>
+
+<Accordion title="Which exchanges does Cassie support?">
+Cassie currently supports two venues:
+
+- **Hyperliquid** — perpetual futures and spot markets
+- **Polymarket** — binary YES/NO prediction markets
+
+More venues may be added in the future.
+</Accordion>
+
+<Accordion title="How does Cassie choose between Hyperliquid and Polymarket?">
+Cassie's AI pipeline reads the source post, frames the opportunity, generates trade expressions for both venues, and ranks each candidate on how cleanly it expresses the tweet's directional thesis. The venue with the **best market fit** — based on available liquidity, market structure, and semantic match — wins. Cassie always picks one venue per mention and explains its reasoning in the reply.
+</Accordion>
+
+</AccordionGroup>

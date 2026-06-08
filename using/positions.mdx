@@ -1,0 +1,63 @@
+---
+title: "How to view, track, and close your Cassie positions"
+sidebarTitle: "Positions"
+description: "View live P&L, track all open positions across Hyperliquid and Polymarket, and close any position directly from your Cassie dashboard."
+---
+
+Every trade Cassie places on your behalf appears in your dashboard at [cassie.trade/dashboard](https://cassie.trade/dashboard). Open positions show live mark prices and unrealized P&L; closed positions stay in your history for reference. You can close any open position from the dashboard at any time — no terminal, no wallet pop-ups.
+
+## What you see per position
+
+Each open position row in your dashboard shows:
+
+| Field | Description |
+|---|---|
+| **Asset / Market** | Ticker or market question, with a venue icon (Hyperliquid or Polymarket) |
+| **Side** | LONG, SHORT, YES, or NO |
+| **Entry price** | The price or probability at which Cassie opened the position |
+| **Mark price** | The current live price or mid-market probability |
+| **Unrealized P&L** | Running gain or loss in USD and as a percentage |
+| **Position value** | Current equity including unrealized P&L |
+
+Mark prices for Hyperliquid positions refresh automatically every 30 seconds. Polymarket positions update on the same cadence using the current CLOB mid-price.
+
+## Daily P&L review and Telegram alerts
+
+If you connected Telegram during onboarding, Cassie reviews your open positions daily and sends a summary to your Telegram account. You will also receive an instant notification when:
+
+- A trade fills after you mention Cassie
+- A close order executes
+- A position moves significantly in either direction
+
+<Tip>
+  Connect Telegram from your dashboard sidebar under **Connect → Telegram alerts** if you skipped it during onboarding. Real-time fill notifications mean you never have to refresh the dashboard to know if a trade went through.
+</Tip>
+
+## Closing a position
+
+<Steps>
+  <Step title="Open your dashboard">
+    Go to [cassie.trade/dashboard](https://cassie.trade/dashboard) and sign in with X if prompted.
+  </Step>
+  <Step title="Find the open position">
+    Your open positions are listed under the **Portfolio** tab. Each row shows the asset, side, and current P&L.
+  </Step>
+  <Step title="Click Close">
+    Click the **Close** button on the right side of the position row. A confirmation dialog will ask you to confirm — click OK to proceed.
+  </Step>
+  <Step title="Wait for the fill">
+    Cassie sends a close order to the venue (IOC limit on Hyperliquid, FAK market sell on Polymarket). The position status updates to **Closing** while the order is in flight, then moves to your closed positions once confirmed.
+  </Step>
+</Steps>
+
+<Note>
+  You will receive a Telegram notification when the close fills — or an error notification if the close order fails, in which case you can retry from the dashboard.
+</Note>
+
+## Exit signals and position monitoring
+
+Cassie monitors your open positions for significant moves and may send a Telegram alert prompting you to review a position. These alerts are informational — Cassie will not automatically close a position without your action unless you have configured an exit plan. Automatic exits based on thesis resolution are on the roadmap.
+
+<Warning>
+  Cassie does not guarantee fills. Close orders can fail if the venue is congested or if your position has already been liquidated (for leveraged perpetuals on Hyperliquid). Always check your position status after requesting a close.
+</Warning>

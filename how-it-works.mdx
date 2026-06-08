@@ -1,0 +1,78 @@
+---
+title: "How Cassie Works: From X Mention to Live Trade Execution"
+sidebarTitle: "How It Works"
+description: "Follow every stage of Cassie's pipeline: from your @cassiedottrade mention to a placed order on Hyperliquid or Polymarket, and learn when Cassie passes."
+---
+
+Every `@cassiedottrade` mention kicks off an eight-stage pipeline. The stages from mention to execution happen in seconds, and each one is designed to be transparent: Cassie tells you what it found, what it decided, and why in its reply to your tweet. Here is what happens inside that pipeline, from your perspective.
+
+## The pipeline
+
+**1. Mention received**
+
+Cassie detects your mention in real time. The moment you post a reply containing `@cassiedottrade`, your request is logged before any AI processing begins — so nothing is lost or dropped if a downstream step takes longer than expected.
+
+**2. Source analysis**
+
+Cassie reads the original tweet you replied to (not just your reply). It uses that post as the raw market signal: the claim, the assertion, the narrative. Cassie classifies the type of signal — crypto price movement, macro event, regulatory outcome, earnings call, and so on — to determine which reasoning path to apply.
+
+**3. Opportunity framing**
+
+Cassie distills the signal into a clear, one-line thesis. For example:
+
+- *"SOL ETF approval probability is rising above fair value."*
+- *"NVIDIA earnings likely to beat consensus estimates."*
+- *"The Fed is unlikely to cut rates at the next meeting."*
+
+This thesis becomes the anchor for everything that follows. If Cassie cannot frame a clean, testable thesis from the source tweet, it stops here and explains why in its reply.
+
+**4. Trade expression**
+
+With a thesis in hand, Cassie generates candidate trade ideas — concrete ways to express that view in a real market. Candidates might include:
+
+- Long or short a perp or spot pair on **Hyperliquid** (e.g., long SOL-PERP)
+- Buy YES or NO shares on a matching **Polymarket** market (e.g., YES on "SOL ETF approved before Q4")
+
+Cassie generates several candidates and ranks them by how cleanly each one expresses the thesis.
+
+**5. Venue search**
+
+Cassie searches live markets on Hyperliquid and Polymarket in real time, matching the top candidates against actual available markets, current liquidity, and bid/ask spreads. It picks the single cleanest fit — the market that most precisely expresses the thesis with real, tradeable liquidity behind it.
+
+**6. Risk check**
+
+Before any order is created, every trade candidate passes through a set of deterministic, code-enforced risk rules. These checks confirm that:
+
+- The order size does not exceed your configured default trade size
+- Your wallet holds sufficient USDC to cover the order
+- The market meets minimum liquidity thresholds
+- The position type and size are within the permitted bounds for your account
+
+No AI judgment is involved at this stage. The risk gate is hard code, not a model opinion.
+
+**7. Trade ticket and execution**
+
+If every risk check passes, Cassie places the order on the target venue — Hyperliquid or Polymarket — and records a full audit trail: entry price, size, venue, timestamp, and execution status. The funds come from your Privy wallet on Base.
+
+**8. Reply and notification**
+
+Cassie replies to your original tweet with the outcome. The reply includes the thesis Cassie identified, the venue and market it chose, and whether the trade was placed or why it was not. If you connected Telegram, you receive a private notification the moment your order fills.
+
+<Note>
+  Cassie reasons with AI for signal analysis and trade generation, but all execution passes through deterministic, code-owned risk gates. The AI cannot override your configured trade size, exceed your funded balance, or bypass the risk checks — those rules are enforced in code, not in the model's judgment.
+</Note>
+
+## When Cassie passes
+
+Cassie does not force a trade. There are several situations where it will analyze the signal, conclude there is no clean trade to make, and tell you so in its reply rather than execute:
+
+- **No venue match** — neither Hyperliquid nor Polymarket has a live market that cleanly expresses the thesis with adequate liquidity
+- **Ambiguous signal** — the source tweet contains conflicting claims, insufficient context, or a thesis Cassie cannot frame with enough precision to generate a defensible trade expression
+- **Risk check failure** — the best candidate trade fails one or more risk rules (for example, your wallet balance is below the minimum order size)
+- **Low-conviction ranking** — Cassie generates candidate trades but ranks none of them as a sufficiently clean expression of the thesis
+
+In every one of these cases, Cassie replies to your tweet explaining what it found and why it chose not to trade. A "no trade" reply is a deliberate outcome, not an error.
+
+<Tip>
+  If Cassie passes on a tweet you expected it to trade, read its reply — it explains the gap. Often, a slightly more specific source tweet (one that names an asset, a market, or a specific outcome) gives Cassie enough signal to find a clean match.
+</Tip>

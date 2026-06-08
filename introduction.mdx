@@ -1,0 +1,51 @@
+---
+title: "Cassie — Trade on The Timeline"
+sidebarTitle: "Introduction"
+description: "Cassie turns a single @cassiedottrade mention into a live trade. She reads the signal, finds the best market on Hyperliquid or Polymarket, and executes."
+---
+
+Cassie is an timeline native trading agent that turns a single tweet mention into a live trade. You reply to any market-flavored post on X with `@cassiedottrade trade this`, and Cassie's AI pipeline reads the signal, finds the best matching market across Hyperliquid and Polymarket, passes every order through deterministic risk checks, and executes — all from a non-custodial wallet that only you fund.
+
+## What Cassie does
+
+When you mention `@cassiedottrade` under a tweet, Cassie:
+
+1. Reads the original post as a raw market signal
+2. Frames the core thesis (for example, "SOL ETF approval odds are rising")
+3. Searches live markets on Hyperliquid and Polymarket for the best trade expression
+4. Applies risk rules and, if everything checks out, places the order from your wallet
+5. Replies to your tweet with the outcome and sends a Telegram notification if you have one connected
+
+<CardGroup cols={2}>
+  <Card title="Tweet-to-trade" icon="bird">
+    Mention `@cassiedottrade` under any market post. No app switching, no order forms — one reply fires the whole pipeline.
+  </Card>
+
+  <Card title="Multi-venue execution" icon="arrows-left-right">
+    Cassie searches Hyperliquid perps and spot markets plus Polymarket prediction markets and picks the cleanest fit for your signal.
+  </Card>
+
+  <Card title="Non-custodial wallet" icon="wallet">
+    Your funds live in a Privy wallet on Base that only you control. Cassie holds trading permission, not your keys.
+  </Card>
+
+  <Card title="Telegram notifications" icon="bell">
+    Connect Telegram once during onboarding and Cassie will ping you the moment a trade fills, a watch moves, or a counter triggers.
+  </Card>
+</CardGroup>
+
+## Supported venues
+
+**Hyperliquid** is a decentralized exchange for perpetual and spot crypto markets. Cassie can open long or short perp positions and place spot orders across the major pairs listed on Hyperliquid.
+
+**Polymarket** is a decentralized prediction market. Cassie can buy YES or NO shares on real-world outcome markets — earnings, elections, regulatory decisions, and anything else with an active market and real liquidity.
+
+When you mention Cassie, it searches both venues in real time and routes the order to whichever market is the cleaner expression of the signal in your tweet. If no clean match exists on either venue, Cassie tells you so in its reply and does not trade.
+
+## Your funds stay yours
+
+Cassie never holds your money. During onboarding, Privy generates a Base wallet that belongs to you alone. You send USDC to that address, and Cassie is granted trading permission — the ability to place orders on your behalf up to your configured trade size. Cassie cannot transfer funds out of your wallet, exceed your funded balance, or trade more than the default size you set.
+
+## Ready to start?
+
+Head to [Quickstart](/quickstart) to set up your wallet, enable trading permission, and send your first mention in under five minutes.

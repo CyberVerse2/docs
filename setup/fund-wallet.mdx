@@ -1,0 +1,61 @@
+---
+title: "Fund your Cassie wallet with USDC on the Base network"
+sidebarTitle: "Fund Wallet"
+description: "Deposit USDC on the Base network to your Cassie wallet so the agent always has funds ready to deploy the moment you drop a mention on X."
+---
+
+Your Cassie wallet lives on Base — Coinbase's Ethereum Layer 2 network. Cassie trades exclusively in USDC, so you need to deposit USDC on Base before any mention can execute. The deposit is a standard on-chain transfer; Cassie detects it automatically and reflects the balance in your dashboard.
+
+## Find your wallet address
+
+Your wallet address is available in two places:
+
+- **Onboarding — Step 3 (Fund):** A QR code and copyable address are shown as soon as your wallet is ready.
+- **Dashboard:** Your address and current USDC balance appear in the wallet panel at any time after onboarding.
+
+You can scan the QR code with a mobile wallet or exchange app, or click **Copy address** to paste it manually.
+
+## Deposit USDC on Base
+
+<Steps>
+  <Step title="Choose your source">
+    Use any exchange or self-custody wallet that supports withdrawals or transfers on the **Base** network. Popular options include Coinbase, Kraken, and wallets such as MetaMask or Rabby with the Base network added.
+  </Step>
+  <Step title="Initiate the transfer">
+    Enter your Cassie wallet address as the destination and select **USDC** as the asset. Set the network to **Base** before confirming. The amount should cover at least your default trade size.
+  </Step>
+  <Step title="Confirm the transaction">
+    Approve the withdrawal or send transaction in your source wallet or exchange. Base transactions typically confirm in a few seconds.
+  </Step>
+  <Step title="Wait for Cassie to detect the deposit">
+    Cassie watches your wallet address for incoming USDC automatically. Your dashboard balance updates as soon as the transaction is confirmed on-chain — no manual refresh needed.
+  </Step>
+</Steps>
+
+<Warning>
+  **Always select the Base network.** USDC sent on Ethereum mainnet, Arbitrum, Solana, or any other network will **not** arrive in your Cassie wallet and cannot be automatically recovered. Double-check the network selection in your exchange or wallet before confirming any transfer.
+</Warning>
+
+## Minimum balance
+
+Cassie requires at least your configured **default trade size** to be available in USDC before it will execute a trade. The absolute minimum trade size is **$6 USDC**.
+
+<Tip>
+  If your balance drops below your default trade size, Cassie will skip the next mention rather than place a partial trade. Keep a buffer above your default size so a series of rapid mentions doesn't leave your wallet too low to act.
+</Tip>
+
+## What happens after the deposit
+
+| Event | What you'll see |
+|---|---|
+| Transaction confirmed on Base | Dashboard balance updates automatically |
+| Balance meets minimum trade size | Cassie is ready to trade on the next mention |
+| Telegram connected | You receive a deposit-detected notification (if enabled) |
+
+## Next step
+
+With funds in your wallet, configure how much USDC Cassie deploys per mention.
+
+<Card title="Configure trade defaults" icon="sliders" href="/setup/trade-defaults">
+  Set your default trade size and understand how it applies to every mention.
+</Card>

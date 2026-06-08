@@ -1,0 +1,68 @@
+---
+title: "Trigger AI trades by replying @cassiedottrade on X"
+sidebarTitle: "Mention"
+description: "Reply to any market-flavored post on X with @cassiedottrade trade this and Cassie finds and executes the best available trade automatically."
+---
+
+Triggering a Cassie trade takes one reply. Find any post on X that makes a directional market claim — a price target, an odds read, a momentum call — reply to it with `@cassiedottrade trade this`, and Cassie's AI pipeline takes over. Within seconds to a minute, Cassie replies on X with either a trade confirmation or an explanation of why no trade was taken.
+
+## What makes a good signal
+
+Cassie reads the **original tweet you replied to**, not just your reply text. Your reply is the trigger; the source post is the signal. For the best results, pick posts that have:
+
+- **A clear directional thesis** — a price level, a percentage move, a YES/NO outcome
+- **A named market anchor** — a specific token, an event, or a prediction market question
+- **Some conviction in the language** — "this is the one", "locking in", "quiet grind back above"
+
+Posts that just say "crypto is interesting" or "markets are weird today" are too vague. Posts like the ones below give Cassie enough to work with.
+
+<Tip>
+  Start with posts that name a specific asset or market and state a clear direction. The more concrete the thesis, the better Cassie can match it to a live market.
+</Tip>
+
+## Basic syntax
+
+Reply to any post with:
+
+```text
+@cassiedottrade trade this
+```
+
+That's the full command. Cassie derives everything else — asset, venue, direction, and size — from the source tweet and your account defaults.
+
+## Example: a good mention
+
+```text
+@maya_trades · 11m
+SOL ETF approval odds quietly grinding back above 60c on Polymarket.
+Volume's there, this is the one.
+
+└── @cassiedottrade trade this
+```
+
+In this example Cassie reads the parent tweet, identifies a Polymarket prediction market on SOL ETF approval, confirms the YES side is supported by the thesis, and places a buy order.
+
+## What happens after you mention
+
+<Steps>
+  <Step title="Cassie picks up your mention">
+    Cassie polls X for new mentions every minute. Your reply is detected and queued for processing.
+  </Step>
+  <Step title="The AI pipeline analyzes the signal">
+    Cassie reads the source tweet, extracts the directional thesis, searches Hyperliquid and Polymarket for candidate markets, and scores each expression for fit.
+  </Step>
+  <Step title="A trade is placed or declined">
+    If a clean match is found, Cassie places the order from your Privy wallet at your default trade size. If nothing fits, Cassie still replies on X explaining why.
+  </Step>
+  <Step title="Cassie replies on X">
+    You receive a public reply from @cassiedottrade confirming the fill — ticker, side, entry price, and venue — or explaining the no-trade decision.
+  </Step>
+</Steps>
+
+## One mention = one trade attempt
+
+Each `@cassiedottrade trade this` reply triggers a single trade attempt using your configured default trade size. To place another trade, mention Cassie again under a different post.
+
+<Note>
+  Cassie may reply "no trade" if the signal is ambiguous, no clean market match exists on either Hyperliquid or Polymarket, or if internal risk checks fail. A no-trade reply is not a failure — it means Cassie evaluated the signal and found no high-confidence expression. Read the reply for the specific reason.
+</Note>

@@ -1,0 +1,69 @@
+---
+title: "Create your Cassie account and enable trading permission"
+sidebarTitle: "Account"
+description: "Sign in with X, get a self-custody wallet on Base, and grant Cassie one-time trading permission — all inside a single guided onboarding flow."
+---
+
+Cassie uses your X (Twitter) identity to create an account and provisions a non-custodial wallet on Base that only you control. The whole process takes about two minutes, and trading permission is granted once — no per-trade approvals needed after that.
+
+## Sign in with X
+
+<Steps>
+  <Step title="Go to cassie.trade">
+    Open [cassie.trade](https://cassie.trade) in your browser and click **Sign in with X**. Cassie uses [Privy](https://privy.io) to authenticate you — your X credentials are never shared with Cassie directly.
+  </Step>
+  <Step title="Authorise the Privy login">
+    Privy presents a standard OAuth consent screen. Approve it to complete sign-in. You are redirected to the onboarding flow immediately after.
+  </Step>
+</Steps>
+
+## Your Cassie wallet
+
+As soon as you sign in, Cassie creates a Privy-managed wallet on Base for your account. You own this wallet — Cassie has no ability to withdraw funds, send assets to third parties, or move money outside of executing trades you initiate via mention.
+
+<Note>
+  Your wallet address is shown on the **Fund** step of onboarding and is always available on your dashboard. Every Cassie account has exactly one wallet; it cannot be changed or replaced.
+</Note>
+
+## Enable trading permission
+
+Before Cassie can act on a mention it needs a one-time trading permission. This is separate from authentication — it tells Cassie it may submit trades from your wallet without prompting you for approval each time.
+
+<Steps>
+  <Step title="Reach the Permissions step">
+    The onboarding stepper advances automatically after sign-in. You will land on **Step 2 — Permissions**.
+  </Step>
+  <Step title="Click Enable trading permission">
+    Press the **Enable trading permission** button. Cassie prepares your account in the background — the button label changes to *Enabling permission* while this completes.
+  </Step>
+  <Step title="Confirm and continue">
+    Once permission is confirmed the stepper moves to the Fund step automatically. You will not need to repeat this step.
+  </Step>
+</Steps>
+
+<Warning>
+  If the permission step shows an error, refresh the page and try again. If the problem persists, make sure your browser allows pop-ups for cassie.trade, then contact support.
+</Warning>
+
+## Custody model
+
+Cassie's design is non-custodial by construction:
+
+<CardGroup cols={2}>
+  <Card title="What Cassie can do" icon="check">
+    Place trades on Hyperliquid and Polymarket using the USDC balance in your wallet, up to your configured trade size per mention.
+  </Card>
+  <Card title="What Cassie cannot do" icon="xmark">
+    Withdraw funds, transfer assets to any address, change wallet ownership, or act without a valid mention from your X account.
+  </Card>
+</CardGroup>
+
+Your funds remain in your Privy-managed wallet at all times. Revoking trading permission from your dashboard immediately stops Cassie from placing further trades.
+
+## Next step
+
+Once your account is created and permission is enabled, add USDC to your wallet so Cassie has funds to trade with.
+
+<Card title="Fund your wallet" icon="wallet" href="/setup/fund-wallet">
+  Send USDC on Base to your Cassie wallet address.
+</Card>

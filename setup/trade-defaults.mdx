@@ -1,0 +1,73 @@
+---
+title: "Configure your Cassie default trade size per mention"
+sidebarTitle: "Trade Defaults"
+description: "Set the USDC amount Cassie deploys on every mention, choose from quick-select presets or a custom value, and understand the $6 minimum floor."
+---
+
+Your default trade size is the single most important setting in Cassie — it controls how much USDC the agent commits every time you mention `@cassiedottrade` under a market post. Getting this number right before your first trade means you won't be surprised by a position that's larger or smaller than you intended.
+
+## What the default trade size controls
+
+Every mention triggers one trade. Cassie uses your default trade size as the USDC notional for that trade across whichever venue — Hyperliquid or Polymarket — best fits the signal. Counter and watch positions inherit the same size unless a future override is specified.
+
+## Preset options
+
+During onboarding (Step 4 — Defaults) and in dashboard settings, Cassie offers four quick-select presets:
+
+| Preset | Best for |
+|---|---|
+| **$25** | New users testing Cassie's signal interpretation |
+| **$50** | Default starting point for most traders |
+| **$100** | Moderate conviction, established workflow |
+| **$250** | High conviction, experienced users |
+
+You can also type any custom amount directly into the amount field. Cassie accepts any value that is a whole or decimal number.
+
+## Minimum trade size
+
+The absolute minimum is **$6 USDC**. Cassie will reject any value below this floor at the settings level — you'll see the message *"Default trade size must be at least $6."* if you try to save a smaller amount.
+
+<Tip>
+  Start with **$25** while you learn how Cassie reads tweet signals. You can always increase the default once you've seen a few trades execute and you're comfortable with the agent's interpretation of different market contexts.
+</Tip>
+
+## Where to change your default trade size
+
+<Steps>
+  <Step title="During onboarding">
+    On **Step 4 — Defaults**, select a preset or type a custom amount, then click **Save & continue**. This is the fastest path on first setup.
+  </Step>
+  <Step title="From the dashboard">
+    After onboarding, open the **Settings** panel in the dashboard sidebar. Update the trade size field and save. Changes take effect on the very next mention.
+  </Step>
+</Steps>
+
+## How the default applies to each mention
+
+```text
+You tweet: "@cassiedottrade trade this"
+          ↓
+Cassie reads the signal from the parent tweet
+          ↓
+Cassie selects venue (Hyperliquid or Polymarket)
+          ↓
+Cassie places a trade for your default trade size in USDC
+```
+
+There is no per-mention override syntax today — every mention uses the default. If you want to adjust size for a particular trade, update the default before posting the mention, then change it back afterwards.
+
+## Wallet balance requirement
+
+Your wallet must hold **at least your default trade size** in USDC for a trade to execute. If the available balance is below the default, Cassie skips the mention rather than trading a partial amount.
+
+<Note>
+  Cassie does not split a trade across multiple smaller executions. If you set a $100 default but only have $60 in your wallet, the trade will not execute. Top up your wallet first.
+</Note>
+
+## Next step
+
+Connect Telegram so you receive real-time notifications whenever a trade fills or a position moves.
+
+<Card title="Connect Telegram alerts" icon="paper-plane" href="/setup/telegram">
+  Get notified the moment a trade executes, a position moves, or a counter triggers.
+</Card>

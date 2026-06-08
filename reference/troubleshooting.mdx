@@ -1,0 +1,86 @@
+---
+title: "Troubleshoot Cassie mentions, fills, and wallet issues"
+sidebarTitle: "Troubleshooting"
+description: "Step-by-step fixes for the most common problems with Cassie mentions, trade fills, wallet balances, Telegram, and trading permissions."
+---
+
+Most issues with Cassie fall into a small number of categories: a mention that didn't trigger a response, a trade that didn't fill, a wallet balance that isn't showing up, or a notification channel that went quiet. Work through the relevant section below to resolve the problem quickly.
+
+---
+
+## Cassie didn't reply to my mention
+
+If you tagged `@cassiedottrade` and received no reply, check the following:
+
+- **Reply to the original post, not a standalone tweet.** Cassie only processes mentions that appear as a reply under a market-flavoured post. A standalone tweet mentioning `@cassiedottrade` will not trigger the agent.
+- **Allow up to a minute for processing.** Cassie processes mentions asynchronously. There is usually a short delay between your mention and the reply — wait at least 60 seconds before assuming something went wrong.
+- **Confirm you completed onboarding.** Cassie only processes mentions from registered users. If you haven't finished the onboarding flow — including granting trading permission and setting a default trade size — your mentions will not be processed. Visit [cassie.trade](https://cassie.trade) to complete setup.
+
+---
+
+## Cassie replied "no trade"
+
+A "no trade" reply means Cassie received your mention, ran its full pipeline, and decided not to place an order. Common reasons include:
+
+- **The signal was too ambiguous.** The post may not have contained a clear enough directional thesis for Cassie to match to a market. Try pointing Cassie at a post with a more explicit call — something like "X is going to Y because Z."
+- **No suitable active market was found.** Cassie searched both Hyperliquid and Polymarket and couldn't find a market that cleanly expressed the post's thesis. This is expected for niche or very recent topics.
+- **Risk checks blocked the trade.** If your wallet balance is below your configured default trade size (minimum $6 USDC), Cassie will not place the order. Check your wallet balance on your dashboard and top up if needed.
+
+<Tip>
+  Rephrase the mention with a clearer directional thesis — for example, "SOL ETF approval odds are too low, fade it" gives Cassie a cleaner signal than a vague sentiment post.
+</Tip>
+
+---
+
+## Trade didn't fill
+
+If Cassie replied that it submitted an order but no position appears on your dashboard:
+
+- **Cassie places IOC/FAK orders.** On Hyperliquid, Cassie uses IOC (Immediate-or-Cancel) limit orders. On Polymarket, Cassie uses FAK (Fill-and-Kill) market buys. Both order types must fill immediately against available liquidity. If the market moved or depth was insufficient at the moment of submission, the order expires unfilled — no partial fills occur.
+- **Check your position list.** Go to your dashboard and look at the positions tab. If no new position was created after Cassie's reply, the order did not fill.
+- **Try again when liquidity improves.** IOC/FAK orders work best in liquid, active markets. Mention Cassie again once conditions improve.
+
+<Warning>
+  A "trade submitted" reply from Cassie confirms the order was sent to the venue — it does not guarantee a fill. Always verify the position on your dashboard.
+</Warning>
+
+---
+
+## Wallet balance not showing
+
+If you sent funds but your dashboard still shows zero balance:
+
+- **Confirm you sent USDC on Base.** Deposits on Ethereum mainnet, Arbitrum, Solana, or any other chain will not appear. Your Cassie wallet is on Base (chain ID 8453) only. Double-check the network in your sending wallet before retrying.
+- **Wait a few minutes.** Base transactions typically confirm within seconds, but indexing and balance propagation can take a few minutes. Your dashboard balance updates automatically — refresh after two to three minutes.
+- **Check the "Watching for USDC on Base" indicator.** During onboarding and on the fund page of your dashboard, a live status indicator confirms that Cassie is watching your wallet address for incoming USDC on Base. If it's active, your deposit will appear as soon as the transaction confirms.
+
+<Note>
+  The minimum trade size is **$6 USDC**. Make sure your deposit brings your balance above your configured default trade size, or Cassie will decline to trade until you top up.
+</Note>
+
+---
+
+## Telegram not receiving notifications
+
+If you connected Telegram during onboarding but aren't receiving messages:
+
+- **Send `/start` to the Cassie Telegram bot.** After clicking "Connect Telegram" and opening the bot, you must send the `/start` command in the Telegram chat. Without this, the bot cannot send you messages. If you skipped this step, open the bot and send `/start` now.
+- **Reconnect if your session expired.** Telegram connection sessions can expire. If notifications stopped after working previously, go to your dashboard settings and reconnect Telegram from scratch.
+- **Unmute the bot.** Check that the Cassie Telegram bot conversation is not muted in your Telegram app. Muted conversations suppress all notifications regardless of your device settings.
+
+<Tip>
+  Telegram is optional — you can also track all fills, positions, and P&L directly on your Cassie dashboard without connecting a bot.
+</Tip>
+
+---
+
+## Can't enable trading permission
+
+If the trading permission step during onboarding fails or the button doesn't respond:
+
+- **Allow pop-ups in your browser.** The Privy authorisation flow opens in a pop-up window. If your browser is blocking pop-ups for [cassie.trade](https://cassie.trade), the flow will silently fail. Add cassie.trade to your browser's allowed pop-ups list, then try again.
+- **Try a different browser or disable extensions.** Ad blockers, privacy extensions, and script blockers can interfere with the Privy pop-up. Try enabling trading permission in a clean browser profile or an incognito window with extensions disabled.
+
+<Note>
+  If you're still stuck after working through the steps above, mention your issue to [@cassiedottrade](https://x.com/cassiedottrade) on X and the team will help you out.
+</Note>

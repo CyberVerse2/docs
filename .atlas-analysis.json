@@ -1,0 +1,77 @@
+{
+  "projectType": "saas",
+  "projectName": "Cassie",
+  "projectDescription": "Cassie is an X-native AI trading agent that reads market-flavored tweets, finds the best expression across Hyperliquid and Polymarket, and executes trades from your wallet when you mention @cassiedottrade.",
+  "theme": "luma",
+  "primaryColor": "#de2a0b",
+  "lightColor": "#ec947c",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "setup/account",
+              "setup/fund-wallet",
+              "setup/trade-defaults",
+              "setup/telegram"
+            ]
+          },
+          {
+            "group": "Using Cassie",
+            "pages": [
+              "using/mention",
+              "using/venues",
+              "using/positions",
+              "using/trade-card"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/faq",
+              "reference/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Tweet-to-trade: mention @cassiedottrade under any market post to trigger an AI-driven trade",
+    "Multi-venue execution across Hyperliquid (perps & spot) and Polymarket (prediction markets)",
+    "AI supervisor pipeline: opportunity framing, trade-expression generation, venue search, risk check, and ticket creation",
+    "Non-custodial Privy wallet — funds stay in your wallet, Cassie only has trading permission",
+    "Default trade size setting — deploy a fixed USDC amount per mention",
+    "Telegram notifications — real-time alerts when a trade fills, a watch moves, or a counter triggers",
+    "Position tracking with live marks and daily P&L review",
+    "Trade share cards — auto-generated prestige OG cards posted to X when a call resolves",
+    "Full audit trail of every run, step, ticket, and execution event",
+    "Dashboard for monitoring open positions, watching signals, and reviewing activity"
+  ],
+  "publicApiSurface": [
+    "GET /api/account — fetch authenticated user account and wallet state",
+    "POST /api/settings — update defaultTradeSizeUsd",
+    "GET /api/dashboard — fetch dashboard payload (positions, activity, account)",
+    "GET /api/positions — list open positions",
+    "POST /api/positions/{positionId}/close — request position close",
+    "GET /api/positions/marks — refresh live mark prices",
+    "GET /api/activity — fetch recent activity feed",
+    "POST /api/telegram/connect — begin Telegram connection session",
+    "POST /api/session/sync — sync authenticated session",
+    "POST /api/x/webhook — X Account Activity webhook receiver (CRC + signature verification)",
+    "POST /api/telegram/webhook — Telegram bot webhook receiver",
+    "GET /trades/{positionId}/pnl — shareable P&L trade page"
+  ]
+}

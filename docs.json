@@ -1,0 +1,98 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Cassie",
+  "description": "Cassie is your X-native AI trading agent. Mention @cassiedottrade under any market post and Cassie finds and executes the best trade on Hyperliquid or Polymarket from your wallet.",
+  "colors": {
+    "primary": "#d7a62c",
+    "light": "#f3df85",
+    "dark": "#b77b12"
+  },
+  "favicon": "https://media.brand.dev/4ca2e458-f7f0-4e2c-aaf8-6b8dd7cb4683.png",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant"]
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Home",
+          "icon": "house",
+          "href": "/"
+        },
+        {
+          "anchor": "Dashboard",
+          "icon": "layout-dashboard",
+          "href": "https://cassie.trade/dashboard"
+        }
+      ]
+    },
+    "directory": "card",
+    "groups": [
+      {
+        "group": "Get Started",
+        "icon": "rocket",
+        "expanded": true,
+        "pages": [
+          "introduction",
+          "quickstart",
+          "how-it-works"
+        ]
+      },
+      {
+        "group": "Setup",
+        "icon": "settings",
+        "expanded": true,
+        "pages": [
+          "setup/account",
+          "setup/fund-wallet",
+          "setup/trade-defaults",
+          "setup/telegram"
+        ]
+      },
+      {
+        "group": "Using Cassie",
+        "icon": "zap",
+        "expanded": true,
+        "pages": [
+          "using/mention",
+          "using/venues",
+          "using/positions",
+          "using/trade-card"
+        ]
+      },
+      {
+        "group": "Reference",
+        "icon": "book-open",
+        "expanded": true,
+        "pages": [
+          "reference/faq",
+          "reference/troubleshooting"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/favicon.ico",
+    "dark": "/images/cassie-docs-lockup.png"
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Start Trading",
+      "href": "https://cassie.trade"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/cassiedottrade"
+    }
+  }
+}
